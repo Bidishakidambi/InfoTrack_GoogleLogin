@@ -1,0 +1,25 @@
+package com.edureka;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class Grid {
+
+	public static void main(String[] args) throws MalformedURLException, InterruptedException {
+		DesiredCapabilities capability = DesiredCapabilities.firefox();
+		//WebDriver driver = new RemoteWebDriver(new URL("http://192.168.56.1:4444/wd/hub"), capability);
+		//WebDriver driver = new FirefoxDriver();
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://www.google.com");
+		System.out.println(driver.getTitle());
+		Thread.sleep(10000);
+		driver.quit();
+
+	}
+}

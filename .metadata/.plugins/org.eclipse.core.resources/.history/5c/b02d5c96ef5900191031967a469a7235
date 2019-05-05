@@ -1,0 +1,46 @@
+package com.CafeTown.testcase;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import CafeTownSend.testcase.Configuration;
+import CafeTownSend.testcase.Excel;
+import CafeTownSend.testcase.Execution;
+import CafeTownSend.testcase.Outcome;
+import CafeTownSend.testcase.Settings;
+
+public class ExecutionTest {
+
+	@Test
+	public void executeTestScriptReturnTrueIfCompleted() {
+
+		try{
+
+			String filePath = "C:\\Users\\class\\Desktop\\Webinar\\TestScript\\TestScript.xlsx";
+
+			Excel excel = new Excel( filePath );
+
+			Outcome configurationDetails = excel.getconfiguration();
+
+			Settings settings = new Settings();
+			Configuration configuration = settings.setSeleniumSettings(configurationDetails);
+
+			String testCases = configuration.getValueOf("TestCase");
+			String url = configuration.getValueOf("URL");
+			String browser = configuration.getValueOf("Browser");
+
+			Outcome outcome = excel.getScript(testCases);
+
+			Assert.assertTrue( outcome.isSuccessful() );
+
+			Execution execution = new Execution( url, browser, filePath );
+			execution.startBrowser();
+			Assert.assertTrue(execution.run( outcome ));
+
+			execution.driver.quit();
+		} catch(Exception ex){
+			System.out.println("Error Found During Execution");
+		}
+	}
+}
+

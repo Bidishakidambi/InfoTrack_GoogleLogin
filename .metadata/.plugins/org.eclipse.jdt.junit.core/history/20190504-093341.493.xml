@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AllTests" project="Infotrack_Project" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="com.edureka.suite.AllTests" time="0.001">
+    <testsuite name="com.edureka.suite.Test1" time="0.0">
+      <testcase name="testA" classname="com.edureka.suite.Test1" time="0.0"/>
+      <testcase name="testB" classname="com.edureka.suite.Test1" time="0.0"/>
+      <testcase name="testC" classname="com.edureka.suite.Test1" time="0.0"/>
+    </testsuite>
+    <testsuite name="com.edureka.suite.Test3" time="0.0">
+      <testcase name="test" classname="com.edureka.suite.Test3" time="0.0"/>
+    </testsuite>
+    <testsuite name="com.edureka.suite.Test2" time="0.0">
+      <testcase name="test" classname="com.edureka.suite.Test2" time="0.0"/>
+    </testsuite>
+    <testsuite name="com.edureka.suite.Test4" time="0.0">
+      <testcase name="test" classname="com.edureka.suite.Test4" time="0.0"/>
+    </testsuite>
+  </testsuite>
+</testrun>

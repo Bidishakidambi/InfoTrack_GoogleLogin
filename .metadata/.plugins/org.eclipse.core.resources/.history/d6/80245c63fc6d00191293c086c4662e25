@@ -1,0 +1,59 @@
+package com.edureka.table;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demo {
+
+	WebDriver driver;
+
+	@Before
+	public void setUp() throws Exception {
+		System.setProperty("webdriver.chrome.driver", "driver//chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("http://www.w3schools.com/html/tryit.asp?filename=tryhtml_table");
+		driver.manage().window().maximize();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
+	}
+
+	@Test
+	public void test() {
+		System.out.println( driver.getTitle() );
+		
+		driver.switchTo().frame("view");
+		
+		WebElement element = driver.findElement(By.xpath("/html/body/table"));
+		System.out.println(element.getText());
+		
+		java.util.List<WebElement> elements = driver.findElements(By.xpath("/html/body/table/tbody/tr"));
+		int totalRow = elements.size();
+		
+		///html/body/table/tbody/tr[1]/td
+		
+		elements = driver.findElements(By.xpath("/html/body/table/tbody/tr/td"));
+		int totalColumn = elements.size()/totalRow;
+		
+		System.out.println("Total Row : " + totalRow);
+		System.out.println("Total Column : " + totalColumn);
+		
+		for(int rowIndex = 1; rowIndex <= totalRow ; rowIndex++){
+			for(int columnIndex = 1; columnIndex <= totalColumn; columnIndex++){
+				String xpath = "/html/body/table/tbody/tr"+ "[" + rowIndex + "]" + "/td" + "[" + columnIndex + "]";
+				System.out.println(xpath);
+				element = driver.findElement(By.xpath(xpath));
+				System.out.println( element.getText() );
+			}
+		}
+		
+	}
+
+}

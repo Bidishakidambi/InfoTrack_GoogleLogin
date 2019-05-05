@@ -1,0 +1,45 @@
+/*package com.CafeTown.testcase;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import CafeTownSend.testcase.Excel;
+import CafeTownSend.testcase.Master;
+import CafeTownSend.testcase.Outcome;
+
+public class ExcelTest extends Master {
+
+	@Test
+	public void getTestCaseDataFromExcel() {
+
+		String filePath = "C:\\Users\\ykpar\\OneDrive\\Desktop\\Framework_CafeTownSend\\TestScript\\TestSheet_Cafe.xlsx";
+		Excel excel = new Excel(filePath);
+		Outcome outcome = excel.getScript("cafetown");
+		Assert.assertTrue(outcome.isSuccessful());
+	}
+
+	@Test
+	public void checkSheetIsNotBlank() {
+
+		String filePath = "C:\\Users\\ykpar\\OneDrive\\Desktop\\Framework_CafeTownSend\\TestScript\\TestSheet_Cafe.xlsx";
+		Excel excel = new Excel(filePath);
+		Outcome outcome = excel.getScript("cafetown");
+		System.out.println(outcome.getTotalNumberOfRows());
+		Assert.assertEquals(3, outcome.getTotalNumberOfRows());
+	}
+
+	@Test
+	public void getConfigurationReturnTrue() {
+
+		String filePath = "C:\\Users\\ykpar\\Downloads\\Codes Selenium\\Framework\\TestScript\\TestSheet_Cafe.xlsx";
+		Excel excel = new Excel(filePath);
+		Outcome outcome = excel.getconfiguration();
+		Assert.assertTrue(outcome.isSuccessful());
+	}
+
+	@Test
+	public void isBrowserFiledIsPresentInConfigurationReturnTrue() {
+
+	}
+
+}*/

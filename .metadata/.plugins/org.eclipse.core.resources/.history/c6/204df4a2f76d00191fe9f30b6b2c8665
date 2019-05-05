@@ -1,0 +1,44 @@
+package com.edureka.sikuli;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Screen;
+
+public class Demo {
+
+	private WebDriver driver;
+	@Before
+	public void setUp() throws Exception {
+		System.setProperty("webdriver.ie.driver", "driver\\IEDriverServer.exe");
+		driver = new InternetExplorerDriver();
+		driver.get("https://www.microsoft.com/en-in/");
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
+	}
+
+	@Test
+	public void test() {
+		System.out.println( driver.getTitle() );
+		driver.manage().window().maximize();
+		//Screen screen = new Screen();
+		try {
+	//	screen.click("C:\\Users\\class\\Desktop\\images\\msign.png");
+		Thread.sleep(10000);
+		
+		} catch(Exception ex){
+			System.out.println(ex.getMessage());
+		}
+	}
+
+}

@@ -1,0 +1,39 @@
+package CafeTownSend.testcase;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+
+public class Googlelogin {
+
+	public static void main(String[] args) {
+
+		
+		String filePath = "C:\\Users\\ykpar\\OneDrive\\Desktop\\Framework_CafeTownSend\\TestScript\\TestSheet_Cafe.xlsx";
+		Excel excel = new Excel(filePath);
+
+		Outcome configurationDetails = excel.getconfiguration();
+
+		Settings settings = new Settings();
+		Configuration configuration = settings.setSeleniumSettings(configurationDetails);
+
+		String testCases = configuration.getValueOf("TestCase");
+		String url = configuration.getValueOf("URL");
+
+		String browser = configuration.getValueOf("Browser");
+
+		Outcome outcome = excel.getScript(testCases);
+
+		Execution execution = new Execution(url, browser, filePath);
+		execution.startBrowser();
+
+		boolean executionStatus = execution.run(outcome);
+
+		if (executionStatus == true)
+			System.out.println("Completed Successfully");
+		else
+			System.out.println("Unsuccessful Execution");
+
+		execution.driver.quit();
+	}
+
+}
